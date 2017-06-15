@@ -8,7 +8,7 @@ const NoteList = (props) =>{
         <ul id="notes">
           {Object.keys(props.notes).map((noteId)=>{
             return(
-              <Note note={props.notes[noteId]} key={noteId}/>
+              <Note note={props.notes[noteId]} key={noteId} chooseCurrentNote={props.chooseCurrentNote}/>
             )
           })}
        

@@ -2,52 +2,47 @@ import React, { Component } from 'react'
 import './NoteForm.css'
 
 class NoteForm extends Component{
-constructor(props){
-  super(props)
-  this.state={
-title:'',
-form:'',
+  constructor(props){
+    super(props)
+    this.state={
+      note:this.blankNote(),
+    }
+
   }
+  blankNote=()=>{
+    return{
+      id: null,
+      title:'',
+      body:'',
+    }
+  }
+  handleChanges=(ev)=>{
+    const note ={...this.state.note}
+    note[ev.target.name]=ev.target.value
+    this.setState({note},()=>this.props.saveNote(this.state.note))
+    
 
-}
-updateTitle(ev){
-  this.setState({
-title: ev.target.value}
-  )
-}
-updateForm(ev){
-  this.setState({
-form: ev.target.value}
-  )
-}
-oldNoteClick(ev){
-  const state={...this.state}
- const listPiece =ev.currentTarget
- state.title= listPiece.querrySelector('.note-title')
-state.title=listPiece.querrySelector('p')
-
-}
-deleteNote(ev){
-  
-this.setState({
-form: '',
-title: '',
-}
-  )
-}
+  }
+  handleSubmit=(ev)=>{
+     ev.preventDefault()
+    this.setState({note: this.blankNote()})
+  }
 
 
 render(){
 return(
      <div className="NoteForm">
-        <form>
-          <button type="button" className="button" onClick={this.deleteNote.bind(this)}>Delete</button>
+        <form onSubmit={this.handleSubmit}>
+        
           <p>
-            <input type="text" name="title" onChange={this.updateTitle.bind(this)} placeholder="Title your note" value={this.state.title} />
+            <input type="text" name="title" onChange={this.handleChanges} placeholder="Title your note" value={this.state.title} />
           </p>
           <p>
-            <textarea name="body" cols="30" rows="10" onChange={this.updateForm.bind(this)} placeholder="Just start typing..."value={this.state.form}></textarea>
+            <textarea name="body" cols="30" rows="10" onChange={this.handleChanges} placeholder="Just start typing..."value={this.state.body}></textarea>
           </p>
+           
+            <button type="submit" className="button">Save and New</button>
+            <button type="submit" className="button">Delete</button>
         </form>
       </div>
 )
