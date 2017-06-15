@@ -1,27 +1,30 @@
-import React, { Component } from 'react'
-const noteData=[{title:'  Citizens of distant epochs',note:' Sea of Tranquility the ash of stellar alchemy vastness is bearable only through love bits of moving fluff are creatures of the cosmos, consciousness a still more glorious dawn awaits two ghostly white figures in coveralls and helmets are soflty dancing tingling of the spine, concept of the number one brain is the seed of intelligence are creatures of the cosmos?'},
-{title:'Preserve and cherish that pale blue dot',note:" network of wormholes a billion trillion the only home we've ever known light years dream of the mind's eye. Intelligent beings!"},
-{title:"Laws of physics",note:"  Cambrian explosion radio telescope, circumnavigated citizens of distant epochs brain is the seed of intelligence two ghostly white figures in coveralls and helmets are soflty dancing galaxies inconspicuous motes of rock and gas"},
-
-]
+import React from 'react'
 
 
 
-class MiniNote extends Component{
-    constructor(props){
-        super(props)
-        this.state={
+
+
+class MiniNote extends React.Component{
+    constructor(){
+        super()
+        this.state = {
             noteData:[{title:'  Citizens of distant epochs',note:' Sea of Tranquility the ash of stellar alchemy vastness is bearable only through love bits of moving fluff are creatures of the cosmos, consciousness a still more glorious dawn awaits two ghostly white figures in coveralls and helmets are soflty dancing tingling of the spine, concept of the number one brain is the seed of intelligence are creatures of the cosmos?'},
 {title:'Preserve and cherish that pale blue dot',note:" network of wormholes a billion trillion the only home we've ever known light years dream of the mind's eye. Intelligent beings!"},
 {title:"Laws of physics",note:"  Cambrian explosion radio telescope, circumnavigated citizens of distant epochs brain is the seed of intelligence two ghostly white figures in coveralls and helmets are soflty dancing galaxies inconspicuous motes of rock and gas"},
-]
+],
         }
     }
+    newMiniNote(ev){
+const state=[...this.state]
+state.push({title:"", note:""})
+console.log('ja')
+    }
+
 render(){
 return(
 
 <ul id="notes">
-    {noteData.map((note,i)=><NoteMaker key={i} note={note}/>)}
+    {this.state.noteData.map((note,i)=><NoteMaker key={i} note={note}/>)}
 </ul>
 )
 
@@ -44,4 +47,5 @@ return(
 )
 
 }
+
 export default MiniNote

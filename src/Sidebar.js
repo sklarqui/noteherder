@@ -1,16 +1,18 @@
-import React, {Component} from 'react'
-import './SideBar.css'
+import React from 'react'
+import './Sidebar.css'
 import quill from './quill.svg'
+import newHover from './new-hover.png'
+import but from './new.png'
 const Sidebar = () => {
 return(
 <div className="Sidebar">
 <nav className="Nav">
         <div className="logo">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1152887/quill.svg" alt="Noteherder" />
+          <img src={quill} alt="Noteherder" />
         </div>
-        <button className="new-note">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1152887/new-hover.png" alt="New note" />
-          <img className="outline" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1152887/new.png" alt="New note" />
+        <button className="new-note" onClick="">
+          <img src={newHover} alt="New note" />
+          <img className="outline" src={but} alt="New note" />
         </button>
       </nav>
 </div>
