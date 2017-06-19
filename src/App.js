@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 
 import './App.css';
 import Main from './Main'
+import Base from './Base'
 
 class App extends Component {
 constructor(){
  super()
         this.state = {
             noteData:{},
-            currentNote:'',
+            currentNote:{},
           }
+          Base.syncState('notes',{context:this,state: 'noteData',})
 
 }
 
@@ -20,13 +22,18 @@ saveNote = (note) => {
   const noteData={...this.state.noteData}
   noteData[note.id]=note
   this.setState({noteData})
+  this.setState({currentNote: note.id})
 
 }
 
 deleteNote = (note) =>{
-  const noteData={...this.state.noteData}
-  noteData[note.id].delete()
-  this.setState({noteData})
+   const noteData={...this.state.noteData}
+
+delete noteData[note.id]
+  
+  // noteData[note.id].delete()
+   this.setState({noteData})
+   
 }
 chooseCurrentNote = (currentNote)=>{
   this.setState({currentNote})

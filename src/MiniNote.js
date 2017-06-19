@@ -17,7 +17,7 @@ class MiniNote extends React.Component{
     newMiniNote(ev){
 const state=[...this.state]
 state.push({title:"", note:""})
-console.log('ja')
+
     }
 
 render(){
