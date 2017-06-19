@@ -7,7 +7,7 @@ class NoteForm extends Component{
    
    let blank =this.blankNote()
 
-
+console.log(props)
 
      this.state={
        note:blank,
@@ -17,9 +17,12 @@ class NoteForm extends Component{
 this.setState({note:this.props.currentNote}, ()=>this.props.saveNote(this.state.note))
    // this.setState({note:this.props.currentNote})
   }
-  changeNote=()=>{
+  
+  componentWillReceiveProps(nextProps){
+console.log(nextProps)
 
   }
+  
   blankNote=()=>{
     return{
       id: null,
@@ -37,13 +40,12 @@ this.setState({note:this.props.currentNote}, ()=>this.props.saveNote(this.state.
   handleSubmit=(ev)=>{
     console.log(this.props.currentNote)
      ev.preventDefault()
-     const blank=this.blankNote()
+   //  const blank=this.blankNote()
     //this.setState({note:this.props.currentNote},()=>this.props.saveNote(blank))
 
      this.setState({note: this.blankNote()})
   }
   destroyNote=(ev)=>{
-  
     this.props.deleteNote(this.state.note)
        this.setState({note: this.blankNote()})
   }

@@ -7,7 +7,8 @@ props.chooseCurrentNote(props.note.id)
 }
 
 return(
-    <li key={props.note.id} onClick={clickNote}>
+  <a onClick={clickNote}>
+    <li key={props.note.id}>
                 <div className="note">
                   <div className="note-title">
                      {props.note.title}
@@ -19,6 +20,7 @@ return(
                   </div>
                 </div>
               </li>
+              </a>
 )
 
 
