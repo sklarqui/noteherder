@@ -3,7 +3,7 @@ import React from 'react'
 const Note=(props)=>{
 const clickNote=(ev)=>{
 
-props.chooseCurrentNote(props.note.id)
+props.chooseCurrentNote(props.note)
 }
 
 return(

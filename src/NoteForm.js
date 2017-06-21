@@ -13,13 +13,14 @@ console.log(props)
        note:blank,
      }
     
-
-this.setState({note:this.props.currentNote}, ()=>this.props.saveNote(this.state.note))
-   // this.setState({note:this.props.currentNote})
   }
-  
+
   componentWillReceiveProps(nextProps){
-console.log(nextProps)
+
+if(nextProps.currentNote){
+
+ this.setState({ note: nextProps.currentNote})
+}
 
   }
   
@@ -38,7 +39,6 @@ console.log(nextProps)
 
   }
   handleSubmit=(ev)=>{
-    console.log(this.props.currentNote)
      ev.preventDefault()
    //  const blank=this.blankNote()
     //this.setState({note:this.props.currentNote},()=>this.props.saveNote(blank))

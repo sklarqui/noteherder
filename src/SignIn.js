@@ -4,11 +4,14 @@ import {auth, githubProvider} from './Base'
 
 const SignIn =()=>{
     const authenticate=()=>{
-        console.log('mamama')
+        
  auth.signInWithPopup(githubProvider)
     }
     return(
-        <button className="SignIn" onClick={authenticate}>Sign in button    </button>
+        <div>
+        <button className="SignIn" onClick={authenticate}>Sign in with Github</button>
+        <button className="SignIn" onClick={authenticate}>Sign in with Google</button>
+        </div>
     )
 
 }
